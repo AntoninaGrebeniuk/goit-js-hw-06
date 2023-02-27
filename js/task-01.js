@@ -1,4 +1,3 @@
-const categoriesListRef = document.querySelector('#categories');
 const items = document.querySelectorAll('.item');
 
 console.log('Number of categories: ', items.length); //кол-во категорий
@@ -8,12 +7,19 @@ console.log('Number of categories: ', items.length); //кол-во катего�
 //   console.log('Elements: ', items[i].lastElementChild.children.length); //кол-во элементов в категории
 // }
 
-//! Мне кажется это можно через forEach сделать, но никак не могу допетрить как (( где-то я туплю
+// ! ==========
 
-const categoriesInfo = items.forEach((item, i, items) => {
-  console.log('Category: ', items[i].firstElementChild.textContent);
-  console.log('Elements: ', items[i].lastElementChild.children.length);
+// const categoriesInfo = items.forEach((item, i, items) => {
+//   console.log('Category: ', items[i].firstElementChild.textContent);
+//   console.log('Elements: ', items[i].lastElementChild.children.length);
+// });
+
+// ! ==========
+
+const categoriesInfo = items.forEach(element => {
+  const title = element.querySelector('h2');
+  const categoriesLength = element.querySelectorAll('li');
+
+  console.log('Category: ', title.textContent);
+  console.log('Elements: ', categoriesLength.length);
 });
-
-//TODO: дошло, но правильна ли эта запись или можно сделать иначе?
-//*  Переменная списка с id categories вообще нигде не задействована.
